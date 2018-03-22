@@ -1,24 +1,15 @@
-# README
+# Blog on Rails API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+| Travis-CI Build Status | Code Climate - Maintainability | Test Coverage |
+| :---- | :------ | :---- |
+[ ![Travis-CI build status][1]][2] | [![Code Climate][3]][4] | [![Test Coverage][5]][6] |
 
-Things you may want to cover:
+[1]: https://travis-ci.org/NikolaiIvanov/blog-api.svg?branch=master
+[2]: https://travis-ci.org/NikolaiIvanov/blog-api
+[3]: https://api.codeclimate.com/v1/badges/ee7d4001f3ec17cb9ec7/maintainability
+[4]: https://codeclimate.com/github/NikolaiIvanov/blog-api/maintainability
+[5]: https://api.codeclimate.com/v1/badges/ee7d4001f3ec17cb9ec7/test_coverage
+[6]: https://codeclimate.com/github/NikolaiIvanov/blog-api/test_coverage
 
-* Ruby version
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Blog based on Rails API

@@ -1,0 +1,25 @@
+language: ruby
+
+rvm:
+  - 2.3.1
+
+branches:
+  only:
+    - master
+
+cache: bundler
+
+addons:
+  postgresql: 9.4
+
+before_script:
+  - export CODECLIMATE_REPO_TOKEN=52365dc43fd658a948b44ae2d65aedd5b3269c7e76925adcc4e5dc704f0ec395 bundle exec rake
+  - cp config/database.yml.travis config/database.yml
+  - psql -c 'create database blog_api_test;' -U postgres
+  - export DISPLAY=:99.0
+  - "echo 'gem: --no-ri --no-rdoc' > ~/.gemrc"
+
+script:
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - bundle exec rake db:test:prepare
+  - bundle exec rake
