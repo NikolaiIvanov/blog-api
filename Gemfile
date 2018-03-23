@@ -31,10 +31,11 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 3.7'
   gem 'pry-rails'
+  gem 'annotate'
+  gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 end
 
 group :test do
-  gem 'faker'
   gem 'shoulda-matchers', '~> 3.1'
   gem 'database_cleaner'
   gem 'factory_bot_rails'

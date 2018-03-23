@@ -18,11 +18,11 @@
 #
 #  fk_rails_...  (post_id => posts.id)
 #
-
-class Comment < ApplicationRecord
-  # Association
-  belongs_to :post
-
-  # validation
-  validates :name, :body, presence: true
+FactoryBot.define do
+  factory :comment do
+    name { Faker::Name.name }
+    body { Faker::Hipster.paragraph }
+    published true
+    post_id nil
+  end
 end
