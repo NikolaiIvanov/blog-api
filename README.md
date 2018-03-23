@@ -1,6 +1,6 @@
 # Blog on Rails API
 
-| Travis-CI Build Status | Code Climate - Maintainability | Test Coverage |
+| Travis-CI Build Status | Code Climate: Maintainability | Code Climate: Test Coverage |
 | :---- | :------ | :---- |
 [ ![Travis-CI build status][1]][2] | [![Code Climate][3]][4] | [![Test Coverage][5]][6] |
 

@@ -11,11 +11,11 @@
 #  updated_at :datetime         not null
 #
 
-class Post < ApplicationRecord
-  # Association
-  has_many :comments, dependent: :destroy
-
-
-  # Validations
-  validates :title, :body, :created_by, presence: true
+FactoryBot.define do
+  factory :post do
+    title { Faker::HitchhikersGuideToTheGalaxy.specie  }
+    body { Faker::Hipster.paragraph }
+    created_by { Faker::Name.name }
+    published true
+  end
 end
