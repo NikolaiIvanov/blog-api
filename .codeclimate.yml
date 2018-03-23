@@ -21,3 +21,6 @@ exclude_patterns:
   - "**/tests/"
   - "Tests/"
   - "**/vendor/"
+  - "app/channels/"
+  - "app/jobs/"
+  - "app/mailers/"
