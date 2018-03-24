@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments
   end
+
+  get '/coverage', :to => redirect('/coverage/index.html')
 end
