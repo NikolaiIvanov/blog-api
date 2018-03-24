@@ -1,7 +1,10 @@
 #!/usr/bin/env ruby
 if ENV['RAILS_ENV'] == 'test'
   require 'simplecov'
-  SimpleCov.start 'rails'
+  SimpleCov.start('rails') do
+    coverage_dir 'public/coverage'
+    add_filter 'app/channels'
+  end
   puts "required simplecov"
 end
 begin
