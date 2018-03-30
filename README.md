@@ -12,8 +12,14 @@
 [6]: https://codeclimate.com/github/NikolaiIvanov/blog-api/test_coverage
 
 
-Blog based on Rails API
+# Blog based on Rails API
+
+* App prepare
+  `bundle install`
+  `rake db:create && rake db:migrate && rake db:seed`
 
 * Run the test suite
   `rspec` or
   `bundle exec guard`
+
+> Current callbacks `/posts` and `/posts/:id/comments`
