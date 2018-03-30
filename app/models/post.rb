@@ -17,5 +17,5 @@ class Post < ApplicationRecord
 
 
   # Validations
-  validates :title, :body, :created_by, presence: true
+  validates_presence_of :title, :body, :created_by
 end

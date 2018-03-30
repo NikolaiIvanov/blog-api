@@ -13,3 +13,7 @@
 
 
 Blog based on Rails API
+
+* Run the test suite
+  `rspec` or
+  `bundle exec guard`

@@ -24,5 +24,5 @@ class Comment < ApplicationRecord
   belongs_to :post
 
   # validation
-  validates :name, :body, presence: true
+  validates_presence_of :name, :body
 end
