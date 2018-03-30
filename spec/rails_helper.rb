@@ -2,6 +2,7 @@
 require 'spec_helper'
 require 'database_cleaner'
 require 'faker'
+require 'pp'
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 # Prevent database truncation if the environment is production
@@ -72,6 +73,7 @@ RSpec.configure do |config|
 
   # FactoryBot methods
   config.include FactoryBot::Syntax::Methods
+  config.include RequestSpecHelper
 
   # Truncate all tables
   config.before(:suite) do
