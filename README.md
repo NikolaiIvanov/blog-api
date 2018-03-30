@@ -12,7 +12,7 @@
 [6]: https://codeclimate.com/github/NikolaiIvanov/blog-api/test_coverage
 
 
-# Blog based on Rails API
+## Setup
 
 * App prepare
   `bundle install`
