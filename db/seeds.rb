@@ -7,12 +7,22 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
+if User.count.zero?
+  User.create!(
+    name: 'John Doe',
+    email: 'user@example.com',
+    password: 'password',
+    password_confirmation: 'password'
+  )
+  puts "-----\n User: #{User.first.name}, has created. \n-----"
+end
+
 if Post.count.zero?
   10.times do
     post = Post.create(
       title: Faker::Company.name,
       body: Faker::Hipster.paragraph,
-      created_by: 1)
+      created_by: User.first.id)
     5.times do
       Comment.create(
         name: Faker::Name.name ,

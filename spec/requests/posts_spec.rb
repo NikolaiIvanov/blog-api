@@ -1,11 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe "Posts API", type: :request do
-  let!(:posts) { create_list(:post, 5) }
+  let(:user) { create(:user) }
+  let!(:posts) { create_list(:post, 5, created_by: user.id) }
   let(:post_id) { posts.first.id }
+  let(:headers) { valid_headers }
 
   describe "GET /posts" do
-    before { get "/posts" }
+    before { get "/posts", params: {}, headers: headers }
 
     it "return posts list" do
       expect(json).not_to be_empty
@@ -18,7 +20,7 @@ RSpec.describe "Posts API", type: :request do
   end
 
   describe "GET /posts/:id" do
-    before { get "/posts/#{post_id}" }
+    before { get "/posts/#{post_id}", params: {}, headers: headers }
 
     context "when record exists" do
       it "returns post" do
@@ -45,10 +47,12 @@ RSpec.describe "Posts API", type: :request do
   end
 
   describe "POST /posts" do
-    let(:valid_attributes) { { title: 'Ruby on Rails API', body: 'Post content.', created_by: '1' } }
+    let(:valid_attributes) {
+      { title: 'Ruby on Rails API', body: 'Post content.', created_by: user.id.to_s }.to_json
+    }
 
     context "when request valid" do
-      before { post '/posts', params: valid_attributes }
+      before { post '/posts', params: valid_attributes, headers: headers }
 
       it "creates a Post" do
         expect(json['title']).to eq('Ruby on Rails API')
@@ -60,23 +64,24 @@ RSpec.describe "Posts API", type: :request do
     end
 
     context "when request is invalid" do
-      before { post '/posts', params: { title: 'Wrong title' } }
+      let(:invalid_attributes) { { body: nil }.to_json }
+      before { post '/posts', params: invalid_attributes, headers: headers }
 
       it "returns status 422" do
         expect(response).to have_http_status(422)
       end
 
       it "returns validation failure message" do
-        expect(response.body).to match(/Validation failed: Body can't be blank, Created by can't be blank/)
+        expect(json['message']).to match(/Validation failed: Title can't be blank, Body can't be blank/)
       end
     end
   end
 
   describe "PUT /posts/:id" do
-    let(:valid_attributes) { { title: 'Valid title' } }
+    let(:valid_attributes) { { title: 'Valid title' }.to_json }
 
     context "when record exists" do
-      before { put "/posts/#{post_id}", params: valid_attributes }
+      before { put "/posts/#{post_id}", params: valid_attributes, headers: headers }
 
       it "updates record" do
         expect(response.body).to be_empty
@@ -89,7 +94,7 @@ RSpec.describe "Posts API", type: :request do
   end
 
   describe "DELETE /posts/:id" do
-    before { delete "/posts/#{post_id}" }
+    before { delete "/posts/#{post_id}", params: {}, headers: headers }
 
     it "returns status 204" do
       expect(response).to have_http_status(204)

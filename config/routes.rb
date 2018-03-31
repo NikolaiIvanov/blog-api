@@ -4,5 +4,8 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  get '/coverage', :to => redirect('/coverage/index.html')
+  get '/coverage', to: redirect('/coverage/index.html')
+
+  post 'auth/login', to: 'authentication#authenticate'
+  post 'signup', to: 'users#create'
 end
