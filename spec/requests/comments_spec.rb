@@ -41,7 +41,6 @@ RSpec.describe 'Comments API', type: :request do
       end
 
       it 'returns single comment' do
-        pp json
         expect(json['id']).to eq(id)
       end
 
