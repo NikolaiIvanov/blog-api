@@ -22,10 +22,10 @@
   `rspec` or
   `bundle exec guard`
 
-### Try online requests:  
-    - [blog-api-on-rails.herokuapp.com](https://blog-api-on-rails.herokuapp.com/posts)
+### Try online requests:  [blog-api-on-rails.herokuapp.com](https://blog-api-on-rails.herokuapp.com/posts)
 
-> Auth required for interact with Blog-Api.\ It support GET/POST/PUT/DELETE for /posts/:id, /posts/:id/comments/:id
+> Auth required for interact with Blog-Api.  
+It support GET/POST/PUT/DELETE for /posts/:id, /posts/:id/comments/:id
 
 > Auth POST request /auth/login  
 `curl -X POST https://blog-api-on-rails.herokuapp.com/auth/login --data "email=user@example.com&password=password"`
