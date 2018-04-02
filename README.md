@@ -22,4 +22,15 @@
   `rspec` or
   `bundle exec guard`
 
-> Current callbacks `/posts` and `/posts/:id/comments`
+### Try online requests:
+    `[blog-api-on-rails.herokuapp.com](https://blog-api-on-rails.herokuapp.com/)`
+
+> Auth required for interact with Blog-Api. It support GET/POST/PUT/DELETE for /posts/:id, /posts/:id/comments/:id
+> Auth POST request /auth/login
+`curl -X POST https://blog-api-on-rails.herokuapp.com/auth/login --data "email=user@example.com&password=password"`
+
+> GET Posts index /posts/
+`curl -X GET https://blog-api-on-rails.herokuapp.com/posts -H "Authorization:Here Your Auth Key Token, which you have got from Auth request"`
+
+> GET Selected Post /posts/1
+`curl -X GET https://blog-api-on-rails.herokuapp.com/posts/1 -H "Authorization:Here Your Auth Key Token, which you have got from Auth request"`
